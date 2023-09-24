@@ -1,3 +1,5 @@
+[![Build Status](https://dev.azure.com/Iza-Soft/Timeflow%20API/_apis/build/status%2FIza-Soft.Timeflow.Platform.UI?branchName=main)](https://dev.azure.com/Iza-Soft/Timeflow%20API/_build/latest?definitionId=2&branchName=main)
+
 # TimeflowPlatformUI
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.4.
