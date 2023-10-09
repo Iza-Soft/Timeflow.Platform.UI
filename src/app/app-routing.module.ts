@@ -5,7 +5,14 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'action',
+    redirectTo: 'dashboard',
+  },
+  {
+    path: 'dashboard',
+    loadChildren: () =>
+      import('../app/modules/dashboard/dashboard.module').then(
+        (m) => m.DashboardModule
+      ),
   },
   {
     path: 'action',
