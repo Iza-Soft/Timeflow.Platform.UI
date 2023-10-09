@@ -1,4 +1,4 @@
-[![Build Status](https://dev.azure.com/Iza-Soft/Timeflow%20API/_apis/build/status%2FIza-Soft.Timeflow.Platform.UI?branchName=main)](https://dev.azure.com/Iza-Soft/Timeflow%20API/_build/latest?definitionId=2&branchName=main)
+[![Build Status](https://dev.azure.com/Iza-Soft/Timeflow%20UI/_apis/build/status%2FIza-Soft.Timeflow.Platform.UI?branchName=main)](https://dev.azure.com/Iza-Soft/Timeflow%20UI/_build/latest?definitionId=6&branchName=main)
 
 # TimeflowPlatformUI
 
