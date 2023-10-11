@@ -2,16 +2,10 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { TimesheetRoutingModule } from './timesheet-routing.module';
-import { ActionComponent } from './components/action/action.component';
-
+import { TimesheetComponent } from './components/timesheet/timesheet.component';
 
 @NgModule({
-  declarations: [
-    ActionComponent
-  ],
-  imports: [
-    CommonModule,
-    TimesheetRoutingModule
-  ]
+  declarations: [TimesheetComponent],
+  imports: [CommonModule, TimesheetRoutingModule],
 })
-export class TimesheetModule { }
+export class TimesheetModule {}

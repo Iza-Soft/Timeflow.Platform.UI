@@ -18,8 +18,24 @@
           <tf-icon-svg [iconName]="'HOME_ICON_STROKE'"></tf-icon-svg>
         </ng-template>
       </div>
-      <div class="inner-content-btn" (click)="onTimeSheet()">Timesheet</div>
-      <div class="inner-content-btn" (click)="onProject()">Project</div>
+      <div
+        class="inner-content-btn inner-content-btn-underline"
+        (click)="onTimeSheet()"
+      >
+        Timesheet
+      </div>
+      <div
+        class="inner-content-btn inner-content-btn-underline"
+        (click)="onCustomers()"
+      >
+        Customers
+      </div>
+      <div
+        class="inner-content-btn inner-content-btn-underline"
+        (click)="onProjects()"
+      >
+        Projects
+      </div>
     </div>
     <div
       class="inner-content-btn-profile"

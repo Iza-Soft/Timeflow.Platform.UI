@@ -15,10 +15,17 @@ const routes: Routes = [
       ),
   },
   {
-    path: 'action',
+    path: 'timesheet',
     loadChildren: () =>
       import('../app/modules/timesheet/timesheet.module').then(
         (m) => m.TimesheetModule
+      ),
+  },
+  {
+    path: 'projects',
+    loadChildren: () =>
+      import('../app/modules/projects/projects.module').then(
+        (m) => m.ProjectsModule
       ),
   },
 ];
