@@ -1,11 +1,50 @@
-.header {
-  height: 3vh;
+.inner {
+  height: 3rem;
   background-color: #fafafa;
-  display: flex;
-  justify-content: center;
+  box-shadow: 0 1px 1px 0 rgba(80, 104, 140, 0.1);
 
-  &-menu {
-    width: 50vw;
+  &-content {
     height: 99%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &-nav {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      height: 100%;
+    }
+
+    &-btn,
+    &-btn-profile,
+    &-btn-home {
+      border: 0px solid black;
+      height: 100%;
+      width: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #6e1c6b;
+      cursor: pointer;
+    }
+
+    &-btn {
+      width: 100px;
+    }
+
+    &-btn-profile {
+      justify-self: end;
+    }
+
+    &-btn:hover {
+      background-color: #6e1c6b;
+      color: white;
+    }
   }
+}
+
+tf-icon-svg {
+  display: flex;
+  height: 1.5rem;
 }
