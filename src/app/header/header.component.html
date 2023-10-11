@@ -1,3 +1,42 @@
-<div class="header">
-  <div class="header-menu"></div>
+<div class="inner">
+  <div class="inner-content">
+    <div class="inner-content-nav">
+      <div
+        class="inner-content-btn-home"
+        (mouseenter)="onMouseEnter('home')"
+        (mouseleave)="onMouseLeave('home')"
+        (click)="onDashboard()"
+      >
+        <ng-template
+          [ngIf]="showFilledHomeIcon"
+          [ngIfElse]="showStrokeHomeIcon"
+        >
+          <tf-icon-svg [iconName]="'HOME_ICON_FILL'"></tf-icon-svg>
+        </ng-template>
+
+        <ng-template #showStrokeHomeIcon>
+          <tf-icon-svg [iconName]="'HOME_ICON_STROKE'"></tf-icon-svg>
+        </ng-template>
+      </div>
+      <div class="inner-content-btn" (click)="onTimeSheet()">Timesheet</div>
+      <div class="inner-content-btn" (click)="onProject()">Project</div>
+    </div>
+    <div
+      class="inner-content-btn-profile"
+      (mouseenter)="onMouseEnter('profile')"
+      (mouseleave)="onMouseLeave('profile')"
+      (click)="onProfile()"
+    >
+      <ng-template
+        [ngIf]="showFilledProfileIcon"
+        [ngIfElse]="showStrokeProfileIcon"
+      >
+        <tf-icon-svg [iconName]="'AVATAR_ICON_FILL'"></tf-icon-svg>
+      </ng-template>
+
+      <ng-template #showStrokeProfileIcon>
+        <tf-icon-svg [iconName]="'AVATAR_ICON_STROKE'"></tf-icon-svg>
+      </ng-template>
+    </div>
+  </div>
 </div>

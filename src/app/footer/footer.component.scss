@@ -1,0 +1,16 @@
+.inner {
+  height: 3rem;
+  background-color: #fafafa;
+  align-items: center;
+  box-shadow: 0 -1px 1px 0 rgba(80, 104, 140, 0.1);
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+
+  &-content {
+    height: 99%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

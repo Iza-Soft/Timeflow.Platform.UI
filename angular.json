@@ -12,7 +12,7 @@
       },
       "root": "",
       "sourceRoot": "src",
-      "prefix": "iza",
+      "prefix": "tf",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
