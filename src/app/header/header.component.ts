@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { NAV_PAGE } from '../shared/enum/nav-page.enum';
 
 @Component({
   selector: 'tf-header',
@@ -9,7 +11,7 @@ export class HeaderComponent {
   public showFilledHomeIcon: boolean = true;
   public showFilledProfileIcon: boolean = true;
 
-  constructor() {}
+  constructor(public router: Router) {}
 
   public onMouseEnter(icon: string) {
     if (icon.includes('home')) this.showFilledHomeIcon = false;
@@ -22,18 +24,22 @@ export class HeaderComponent {
   }
 
   public onTimeSheet() {
-    console.log('show timesheet');
+    this.router.navigate([NAV_PAGE.TIMESHEET]);
   }
 
   public onProfile() {
     console.log('open dropdown menu');
   }
 
-  public onProject() {
-    console.log('show all projects');
+  public onProjects() {
+    this.router.navigate([NAV_PAGE.PROJECTS]);
   }
 
   public onDashboard() {
-    console.log('go to dashboard');
+    this.router.navigate([NAV_PAGE.DASHBOARD]);
+  }
+
+  public onCustomers() {
+    console.log('show all customers');
   }
 }
