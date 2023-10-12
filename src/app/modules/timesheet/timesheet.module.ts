@@ -2,11 +2,15 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { TimesheetRoutingModule } from './timesheet-routing.module';
-import { TimesheetComponent } from './components/timesheet/timesheet.component';
-import { LabelComponent } from 'src/app/shared/components/label/label.component';
+import * as comp from './components/index';
 
 @NgModule({
-  declarations: [TimesheetComponent, LabelComponent],
+  declarations: [
+    comp.TimesheetComponent,
+    comp.LabelComponent,
+    comp.TimesheetWeeklyComponent,
+    comp.IconSvgComponent,
+  ],
   imports: [CommonModule, TimesheetRoutingModule],
 })
 export class TimesheetModule {}

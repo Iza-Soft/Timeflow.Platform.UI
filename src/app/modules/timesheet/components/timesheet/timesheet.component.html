@@ -1,69 +1,42 @@
 <div class="inner">
   <div class="inner-content">
     <div class="container">
-      <div class="grid-container">
-        <div class="grid-container-nested-3">
-          <div class="grid-item">
-            <!-- Column 1 -->
-            <div class="grid-container-nested-2">
-              <div class="grid-item-without-border">
-                <tf-label
-                  [title]="'Total Projects'"
-                  [hint]="'(weekly report)'"
-                  [hintSize]="'12px'"
-                  [hintColor]="'#999'"
-                />
-              </div>
-              <div class="grid-item-without-border self-end">
-                <tf-label
-                  [title]="'1'"
-                  [titleSize]="'25px'"
-                  [titleColor]="'#328d20'"
-                />
-              </div>
-            </div>
-          </div>
-          <div class="grid-item">
-            <div class="grid-container-nested-2">
-              <div class="grid-item-without-border">
-                <tf-label
-                  [title]="'Total Hours'"
-                  [hint]="'(weekly report)'"
-                  [hintSize]="'12px'"
-                  [hintColor]="'#999'"
-                />
-              </div>
-              <div class="grid-item-without-border self-end">
-                <tf-label
-                  [title]="'24'"
-                  [titleSize]="'25px'"
-                  [titleColor]="'#328d20'"
-                />
-              </div>
-            </div>
-          </div>
-          <div class="grid-item">
-            <div class="grid-container-nested-2">
-              <div class="grid-item-without-border">
-                <tf-label
-                  [title]="'Total Amount'"
-                  [hint]="'(weekly report)'"
-                  [hintSize]="'12px'"
-                  [hintColor]="'#999'"
-                />
-              </div>
-              <div class="grid-item-without-border self-end">
-                <tf-label
-                  [title]="'1250 £'"
-                  [titleSize]="'25px'"
-                  [titleColor]="'#328d20'"
-                />
-              </div>
-            </div>
-          </div>
+      <div class="content-nav">
+        <div
+          class="content-nav-btn"
+          (mouseenter)="onMouseEnter('undo')"
+          (mouseleave)="onMouseLeave('undo')"
+        >
+          <ng-template
+            [ngIf]="showFilledUndoIcon"
+            [ngIfElse]="showStrokeUndoIcon"
+          >
+            <tf-icon-svg [iconName]="'UNDO_ICON_FILL'"></tf-icon-svg>
+          </ng-template>
+
+          <ng-template #showStrokeUndoIcon>
+            <tf-icon-svg [iconName]="'UNDO_ICON_STROKE'"></tf-icon-svg>
+          </ng-template>
         </div>
-        <div class="grid-item">Body</div>
+        <div
+          class="content-nav-btn"
+          (mouseenter)="onMouseEnter('redo')"
+          (mouseleave)="onMouseLeave('redo')"
+        >
+          <ng-template
+            [ngIf]="showFilledRedoIcon"
+            [ngIfElse]="showStrokeRedoIcon"
+          >
+            <tf-icon-svg [iconName]="'REDO_ICON_FILL'"></tf-icon-svg>
+          </ng-template>
+
+          <ng-template #showStrokeRedoIcon>
+            <tf-icon-svg [iconName]="'REDO_ICON_STROKE'"></tf-icon-svg>
+          </ng-template>
+        </div>
       </div>
+
+      <tf-timesheet-weekly></tf-timesheet-weekly>
     </div>
   </div>
 </div>
