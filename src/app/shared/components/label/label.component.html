@@ -1,0 +1,8 @@
+<div class="content">
+  <label [ngStyle]="{ 'font-size': titleSize, color: titleColor }">{{
+    title
+  }}</label>
+  <label *ngIf="hint" [ngStyle]="{ 'font-size': hintSize, color: hintColor }">{{
+    hint
+  }}</label>
+</div>

@@ -8,7 +8,12 @@ import { FooterComponent } from './footer/footer.component';
 import { IconSvgComponent } from './shared/icon-svg/icon-svg.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, FooterComponent, IconSvgComponent],
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    FooterComponent,
+    IconSvgComponent,
+  ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],

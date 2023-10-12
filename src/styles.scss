@@ -2,7 +2,7 @@
 body {
   margin: initial;
   font-family: Georgia, serif;
-  color: #8b99a2;
+  color: #1c6b6e;
   background-color: #eff2f8;
 }
 
@@ -13,4 +13,18 @@ body {
   &-content {
     width: 50vw;
   }
+
+  @media (max-width: 1440px) {
+    &-content {
+      width: 75vw;
+    }
+  }
+}
+
+.container {
+  margin: 20px 10px 0 10px;
+}
+
+.self-end {
+  justify-self: self-end;
 }

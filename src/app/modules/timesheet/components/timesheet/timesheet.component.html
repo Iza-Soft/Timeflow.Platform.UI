@@ -1,5 +1,69 @@
 <div class="inner">
   <div class="inner-content">
-    <p>action works!</p>
+    <div class="container">
+      <div class="grid-container">
+        <div class="grid-container-nested-3">
+          <div class="grid-item">
+            <!-- Column 1 -->
+            <div class="grid-container-nested-2">
+              <div class="grid-item-without-border">
+                <tf-label
+                  [title]="'Total Projects'"
+                  [hint]="'(weekly report)'"
+                  [hintSize]="'12px'"
+                  [hintColor]="'#999'"
+                />
+              </div>
+              <div class="grid-item-without-border self-end">
+                <tf-label
+                  [title]="'1'"
+                  [titleSize]="'25px'"
+                  [titleColor]="'#328d20'"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="grid-item">
+            <div class="grid-container-nested-2">
+              <div class="grid-item-without-border">
+                <tf-label
+                  [title]="'Total Hours'"
+                  [hint]="'(weekly report)'"
+                  [hintSize]="'12px'"
+                  [hintColor]="'#999'"
+                />
+              </div>
+              <div class="grid-item-without-border self-end">
+                <tf-label
+                  [title]="'24'"
+                  [titleSize]="'25px'"
+                  [titleColor]="'#328d20'"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="grid-item">
+            <div class="grid-container-nested-2">
+              <div class="grid-item-without-border">
+                <tf-label
+                  [title]="'Total Amount'"
+                  [hint]="'(weekly report)'"
+                  [hintSize]="'12px'"
+                  [hintColor]="'#999'"
+                />
+              </div>
+              <div class="grid-item-without-border self-end">
+                <tf-label
+                  [title]="'1250 £'"
+                  [titleSize]="'25px'"
+                  [titleColor]="'#328d20'"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="grid-item">Body</div>
+      </div>
+    </div>
   </div>
 </div>
