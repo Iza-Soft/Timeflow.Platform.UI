@@ -1,0 +1,10 @@
+<div
+  class="btn btn-cross-effect"
+  [ngClass]="{ 'msg-icn': active, 'btn-cross-effect': !active }"
+  (click)="onClickEvent()"
+>
+  <span>
+    <div>{{ title }}</div>
+    <div>{{ hint }}</div>
+  </span>
+</div>

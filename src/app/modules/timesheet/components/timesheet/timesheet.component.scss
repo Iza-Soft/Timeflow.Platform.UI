@@ -1,0 +1,17 @@
+.content-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 0 10px 0;
+
+  &-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+}
+tf-icon-svg {
+  display: flex;
+  height: 1.5rem;
+}

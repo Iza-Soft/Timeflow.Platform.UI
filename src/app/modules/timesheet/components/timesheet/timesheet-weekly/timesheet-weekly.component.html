@@ -1,0 +1,87 @@
+<div class="grid-container">
+  <div class="grid-container-nested-3">
+    <div class="grid-item">
+      <div class="grid-container-nested-2">
+        <div class="grid-item-without-border">
+          <tf-label
+            [title]="'Total Projects'"
+            [hint]="'(weekly report)'"
+            [hintSize]="'12px'"
+            [hintColor]="'#999'"
+          />
+        </div>
+        <div class="grid-item-without-border self-end">
+          <tf-label
+            [title]="'1'"
+            [titleSize]="'25px'"
+            [titleColor]="'#328d20'"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="grid-item">
+      <div class="grid-container-nested-2">
+        <div class="grid-item-without-border">
+          <tf-label
+            [title]="'Total Hours'"
+            [hint]="'(weekly report)'"
+            [hintSize]="'12px'"
+            [hintColor]="'#999'"
+          />
+        </div>
+        <div class="grid-item-without-border self-end">
+          <tf-label
+            [title]="'24'"
+            [titleSize]="'25px'"
+            [titleColor]="'#328d20'"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="grid-item">
+      <div class="grid-container-nested-2">
+        <div class="grid-item-without-border">
+          <tf-label
+            [title]="'Total Amount'"
+            [hint]="'(weekly report)'"
+            [hintSize]="'12px'"
+            [hintColor]="'#999'"
+          />
+        </div>
+        <div class="grid-item-without-border self-end">
+          <tf-label
+            [title]="'1250 £'"
+            [titleSize]="'25px'"
+            [titleColor]="'#328d20'"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="grid-item">
+    <div class="grid-item-header">Januray 14, 2023 - January 21, 2023</div>
+    <div class="grid-item-body">
+      <div class="grid-item-body-menu">
+        <ng-template ngFor let-dayOfWeek [ngForOf]="daysOfWeek" let-i="index">
+          <tf-button-cross-effect
+            [title]="dayOfWeek"
+            [hint]="'0 hrs'"
+            [active]="dayOfWeek === selectedDayOfWeek"
+            (clickEvent)="onSelectDayOfWeek(dayOfWeek)"
+          ></tf-button-cross-effect>
+        </ng-template>
+      </div>
+      <div class="grid-item-body-content" style="height: 30vh">
+        <ng-template [ngIf]="true">
+          <div>Content</div>
+        </ng-template>
+      </div>
+    </div>
+    <div class="grid-item-footer">
+      <tf-button-half-fuller
+        [title]="'copy over all rows from most recent timesheet'"
+      ></tf-button-half-fuller>
+      <tf-button-half-fuller [title]="'confirm'"></tf-button-half-fuller>
+    </div>
+  </div>
+</div>

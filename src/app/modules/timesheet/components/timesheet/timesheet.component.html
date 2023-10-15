@@ -1,5 +1,44 @@
 <div class="inner">
   <div class="inner-content">
-    <p>action works!</p>
+    <div class="main-container">
+      <div class="content-nav">
+        <div
+          class="content-nav-btn"
+          (mouseenter)="onMouseEnter('undo')"
+          (mouseleave)="onMouseLeave('undo')"
+        >
+          <ng-template
+            [ngIf]="showFilledUndoIcon"
+            [ngIfElse]="showStrokeUndoIcon"
+          >
+            <tf-icon-svg [iconName]="'UNDO_ICON_FILL'"></tf-icon-svg>
+          </ng-template>
+
+          <ng-template #showStrokeUndoIcon>
+            <tf-icon-svg [iconName]="'UNDO_ICON_STROKE'"></tf-icon-svg>
+          </ng-template>
+        </div>
+        <div
+          class="content-nav-btn"
+          (mouseenter)="onMouseEnter('redo')"
+          (mouseleave)="onMouseLeave('redo')"
+        >
+          <ng-template
+            [ngIf]="showFilledRedoIcon"
+            [ngIfElse]="showStrokeRedoIcon"
+          >
+            <tf-icon-svg [iconName]="'REDO_ICON_FILL'"></tf-icon-svg>
+          </ng-template>
+
+          <ng-template #showStrokeRedoIcon>
+            <tf-icon-svg [iconName]="'REDO_ICON_STROKE'"></tf-icon-svg>
+          </ng-template>
+        </div>
+      </div>
+
+      <tf-timesheet-weekly
+        [timesheetlist]="timesheetlist"
+      ></tf-timesheet-weekly>
+    </div>
   </div>
 </div>
