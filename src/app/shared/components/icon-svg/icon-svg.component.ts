@@ -7,7 +7,7 @@ import {
   AfterViewInit,
 } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ICON_SVG_CONFIG } from '../../config/icon-svg.config';
+import { ICON_SVG_CONFIG } from '../../../config/icon-svg.config';
 
 const cash = {};
 

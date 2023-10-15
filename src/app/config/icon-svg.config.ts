@@ -1,5 +1,3 @@
-// color svg icons
-
 class IconSvgConfig {
   readonly HOME_ICON_FILL: string;
   readonly AVATAR_ICON_FILL: string;

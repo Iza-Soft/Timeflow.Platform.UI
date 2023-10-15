@@ -1,6 +1,6 @@
 <div class="inner">
   <div class="inner-content">
-    <div class="container">
+    <div class="main-container">
       <div class="content-nav">
         <div
           class="content-nav-btn"
@@ -36,7 +36,9 @@
         </div>
       </div>
 
-      <tf-timesheet-weekly></tf-timesheet-weekly>
+      <tf-timesheet-weekly
+        [timesheetlist]="timesheetlist"
+      ></tf-timesheet-weekly>
     </div>
   </div>
 </div>
