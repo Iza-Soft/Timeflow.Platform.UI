@@ -19,3 +19,6 @@ export class ButtonCrossEffectComponent implements OnInit {
     this.clickEvent.emit();
   }
 }
+
+// Animated button: https://freefrontend.com/css-button-hover-effects/page/2/
+// Arrow box: https://onaircode.com/html-css-arrow-box-examples/
