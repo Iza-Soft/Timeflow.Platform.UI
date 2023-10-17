@@ -1,3 +1,30 @@
+.inner {
+  display: flex;
+  justify-content: flex-start;
+  margin: 20px;
+
+  &-content {
+    margin: 0 0 0 20px;
+    width: 100%;
+
+    &-row {
+      display: flex;
+      // text-wrap: nowrap;
+      // @media (max-width: 1024px) {
+      //   overflow-wrap: break-word;
+      // }
+    }
+
+    &-col-lg {
+      width: 90%;
+    }
+
+    &-col-sm {
+      width: 10%;
+    }
+  }
+}
+
 tf-icon-svg {
   display: flex;
   height: 3.5rem;
@@ -5,4 +32,7 @@ tf-icon-svg {
 
 .btn {
   padding: 0;
+  &-tools {
+    height: 1.4rem;
+  }
 }

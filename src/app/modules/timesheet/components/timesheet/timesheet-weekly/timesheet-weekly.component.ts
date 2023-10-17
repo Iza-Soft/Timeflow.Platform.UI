@@ -11,7 +11,7 @@ export class TimesheetWeeklyComponent implements OnInit {
   @Input() timesheetlist: ITimeSheet[];
 
   public daysOfWeek: string[] = DATE_TIME_CONFIG.DAYS_OF_WEEK;
-  public selectedDayOfWeek: string;
+  public selectedDayOfWeek: string = this.daysOfWeek[new Date().getDay()];
   constructor() {}
 
   public ngOnInit(): void {}

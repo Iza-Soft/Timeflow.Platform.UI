@@ -1,6 +1,6 @@
 .inner {
   height: 3rem;
-  background-color: #fafafa;
+  background-color: #6e1c6b;
   box-shadow: 0 1px 1px 0 rgba(80, 104, 140, 0.1);
 
   &-content {
@@ -35,6 +35,7 @@
       font-weight: 700;
       font-size: 0.7em;
       text-transform: uppercase;
+      color: #fafafa;
 
       &-underline {
         position: relative;
@@ -65,10 +66,10 @@
       justify-self: end;
     }
 
-    &-btn:hover {
-      background-color: #6e1c6b;
-      color: #fafafa;
-    }
+    // &-btn:hover {
+    //   background-color: #6e1c6b;
+    //   color: #fafafa;
+    // }
   }
 }
 
