@@ -9,6 +9,7 @@ import * as comp from './components/index';
     comp.TimesheetComponent,
     comp.TimesheetWeeklyComponent,
     comp.TimesheetWeeklyContentComponent,
+    comp.TimesheetEntryComponent,
   ],
   imports: [CommonModule, TimesheetRoutingModule, SharedModule],
 })

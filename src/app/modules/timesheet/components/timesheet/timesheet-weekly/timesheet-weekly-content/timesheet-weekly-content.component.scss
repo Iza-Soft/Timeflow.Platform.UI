@@ -28,11 +28,13 @@
 tf-icon-svg {
   display: flex;
   height: 3.5rem;
+  width: 3.5rem;
 }
 
 .btn {
   padding: 0;
   &-tools {
     height: 1.4rem;
+    width: initial;
   }
 }

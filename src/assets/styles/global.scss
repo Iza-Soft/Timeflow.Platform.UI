@@ -31,13 +31,20 @@ body {
 
 .tools {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
 }
 
 .text-wrap {
   overflow-wrap: break-word;
 }
+
+tf-icon-svg {
+  display: flex;
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
 // /////// Below is not in scss yet. Yet. - work in progress
 
 // .pure-control-group {
