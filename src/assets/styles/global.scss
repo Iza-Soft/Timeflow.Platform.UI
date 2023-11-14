@@ -11,12 +11,12 @@ body {
   justify-content: center;
 
   &-content {
-    width: 50vw;
+    width: calc(100% / 2);
   }
 
   @media (max-width: 1440px) {
     &-content {
-      width: 75vw;
+      width: calc(100% / 1.25);
     }
   }
 }
@@ -25,8 +25,24 @@ body {
   margin: 20px 10px 0 10px;
 }
 
-.self-end {
-  justify-self: self-end;
+.text-aling-end {
+  text-align: end;
+}
+
+.tools {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.text-wrap {
+  overflow-wrap: break-word;
+}
+
+tf-icon-svg {
+  display: flex;
+  height: 1.5rem;
+  width: 1.5rem;
 }
 
 // /////// Below is not in scss yet. Yet. - work in progress

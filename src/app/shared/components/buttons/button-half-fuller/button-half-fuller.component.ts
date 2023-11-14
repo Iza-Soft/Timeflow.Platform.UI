@@ -10,3 +10,6 @@ export class ButtonHalfFullerComponent {
 
   constructor() {}
 }
+
+// Animated button: https://freefrontend.com/css-button-hover-effects/page/2/
+// Arrow box: https://onaircode.com/html-css-arrow-box-examples/

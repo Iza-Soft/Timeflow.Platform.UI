@@ -1,0 +1,20 @@
+<div class="modal-header">
+  <h5 class="modal-title pull-left">New time entry for Saturday, 23 Sep</h5>
+</div>
+<div class="modal-body"><tf-select></tf-select></div>
+<div class="modal-footer">
+  <tf-button-half-fuller
+    [title]="'close'"
+    (click)="closeModal()"
+  ></tf-button-half-fuller>
+  <div>
+    <tf-button-half-fuller
+      [title]="'delete'"
+      (click)="closeModal()"
+    ></tf-button-half-fuller>
+    <tf-button-half-fuller
+      [title]="'update'"
+      (click)="closeModal()"
+    ></tf-button-half-fuller>
+  </div>
+</div>

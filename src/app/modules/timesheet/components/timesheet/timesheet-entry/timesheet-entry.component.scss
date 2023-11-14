@@ -1,0 +1,14 @@
+.modal-header {
+  background-color: #6e1c6b;
+  color: #fafafa;
+  justify-content: center;
+  padding: 5px 0 5px 0;
+}
+
+.modal-footer {
+  padding: initial;
+  justify-content: space-between;
+}
+.modal-footer > * {
+  margin: initial;
+}
