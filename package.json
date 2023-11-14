@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "start:domain": "ng serve --port 80 --disable-host-check --host localhost --open",
+    "start:domain": "ng serve --port 80 --disable-host-check --host timeflow.iza-soft.com --open",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
