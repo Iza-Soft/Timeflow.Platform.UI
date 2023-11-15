@@ -10,6 +10,7 @@ import { SharedModule } from './shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { ErrorInterceptor, JwtInterceptor } from './services';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent, FooterComponent],
@@ -19,6 +20,7 @@ import { ErrorInterceptor, JwtInterceptor } from './services';
     SharedModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    ToastrModule.forRoot(),
   ],
   providers: [
     BsModalService,
