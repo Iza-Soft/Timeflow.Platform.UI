@@ -45,6 +45,14 @@ tf-icon-svg {
   width: 1.5rem;
 }
 
+.ngx-toastr {
+  width: 400px !important; // Specify toastr-dialog width for all devices
+}
+
+// .toast-top-right {
+//   right: 0 !important;
+// }
+
 // /////// Below is not in scss yet. Yet. - work in progress
 
 // .pure-control-group {

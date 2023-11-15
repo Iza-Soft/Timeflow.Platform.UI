@@ -7,12 +7,13 @@ import {
   HttpErrorResponse,
 } from '@angular/common/http';
 import { Observable, catchError, throwError } from 'rxjs';
+import { NotificationService } from '../notifications/notification.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ErrorInterceptor implements HttpInterceptor {
-  constructor() {}
+  constructor(private notification: NotificationService) {}
 
   intercept(
     request: HttpRequest<any>,
@@ -28,7 +29,15 @@ export class ErrorInterceptor implements HttpInterceptor {
           console.log('this is server side error');
           errorMsg = `Error Code: ${error.status},  Message: ${error.message}`;
         }
-        console.log(errorMsg);
+        if (error.status === 401) {
+          this.notification.Error(error.error.Description, error.error.Message);
+        }
+        if (error.status === 0) {
+          this.notification.Error(
+            'Something went wrong, please try again later!!!',
+            'Error'
+          );
+        }
         return throwError(() => error);
       })
     );
