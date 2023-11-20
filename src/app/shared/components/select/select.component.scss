@@ -1,3 +1,9 @@
+input {
+  cursor: pointer;
+  padding-left: 10px;
+  font-style: italic;
+}
+
 input:focus {
   outline: none;
   box-shadow: none;
@@ -6,4 +12,44 @@ input:focus {
 input::placeholder {
   font-style: italic;
   opacity: 0.8;
+}
+
+.dropdown-parent-item {
+  font-weight: 500;
+}
+
+.dropdown-parent-item:hover,
+.dropdown-parent-item:focus {
+  background-color: white !important;
+}
+
+.dropdown-child-item {
+  cursor: pointer;
+  padding-left: 40px;
+  font-size: 15px;
+}
+
+.dropdown-item {
+  &_selected {
+    color: white !important;
+    background-color: #6e1c6b !important;
+  }
+}
+
+.dropdown-item-notFound {
+  padding-left: 40px;
+  font-style: italic;
+  font-weight: initial;
+  color: #999;
+}
+
+.dropdown-item.active,
+.dropdown-item:active {
+  color: white !important;
+  text-decoration: none;
+  background-color: #6e1c6b !important;
+}
+
+hr {
+  margin: 5px 10px 5px 10px;
 }

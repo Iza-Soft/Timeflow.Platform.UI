@@ -1,10 +1,15 @@
 <div class="modal-header">
   <h5 class="modal-title pull-left">New time entry for Saturday, 23 Sep</h5>
 </div>
-<div class="modal-body"><tf-select></tf-select></div>
+<div class="modal-body">
+  <tf-select
+    [dataSource]="dataSource"
+    (onSelectItem)="onSelectProject($event)"
+  ></tf-select>
+</div>
 <div class="modal-footer">
   <tf-button-half-fuller
-    [title]="'close'"
+    [title]="'cancel'"
     (click)="closeModal()"
   ></tf-button-half-fuller>
   <div>
