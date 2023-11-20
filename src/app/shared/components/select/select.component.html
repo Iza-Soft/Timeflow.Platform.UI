@@ -1,7 +1,8 @@
 <div class="btn-group" #dropdown="bs-dropdown" dropdown style="width: 100%">
   <input
     type="text"
-    placeholder="Project / Task"
+    [placeholder]="placeholder"
+    [readonly]="readonly"
     style="
       border-top-left-radius: 5px;
       border-bottom-left-radius: 5px;
@@ -30,31 +31,60 @@
     style="width: 93%"
   >
     <ng-template ngFor let-parent [ngForOf]="_dataSource" let-i="index">
-      <li class="dropdown-item dropdown-parent-item">
-        <i class="tags icon"></i>
-        <div>
-          {{ parent.Title }}
+      <li
+        role="menuitem"
+        class="dropdown-item dropdown-parent-item"
+        [ngClass]="{
+          'dropdown-simple-item': !notSimpleMenu,
+          'dropdown-item_selected': !notSimpleMenu && parent.Title === title
+        }"
+        (click)="
+          !notSimpleMenu && onSelectOption(parent.Id, undefined, dropdown)
+        "
+      >
+        <div class="dropdown-item_header">
+          <div class="dropdown-item_header_icon" *ngIf="notSimpleMenu">
+            <tf-icon-svg [iconName]="'TAGS_ICON'"></tf-icon-svg>
+          </div>
+          <div>{{ parent.Title }}</div>
         </div>
       </li>
-      <ng-template ngFor let-child [ngForOf]="parent.Collection" let-i="index">
+      <ng-template ngFor let-child [ngForOf]="parent.Collection" let-j="index">
         <li
           role="menuitem"
           class="dropdown-item dropdown-child-item"
           [ngClass]="{ 'dropdown-item_selected': child.Title === title }"
-          (click)="onSelectOption(dropdown, child.Id, child.ParentId)"
+          (click)="onSelectOption(child.Id, child.ParentId, dropdown)"
         >
           <div>
             {{ child.Title }}
           </div>
         </li>
       </ng-template>
-      <ng-template [ngIf]="parent.Collection?.length === 0">
-        <li class="dropdown-item-notFound">No results found</li>
+      <ng-template [ngIf]="parent.Collection?.length === 0 && notSimpleMenu">
+        <li class="dropdown-item-notFound">
+          <div class="dropdown-item-notFound_header">
+            <div class="dropdown-item-notFound_header_icon">
+              <tf-icon-svg [iconName]="'NOT_FOUND_ICON'"></tf-icon-svg>
+            </div>
+            <div>No results found</div>
+          </div>
+        </li>
       </ng-template>
-      <div class="dropdown-divider" *ngIf="_dataSource.length > 1"></div>
+      <div
+        class="dropdown-divider"
+        *ngIf="_dataSource.length > 1 && i < _dataSource.length - 1"
+      ></div>
     </ng-template>
     <ng-template [ngIf]="_dataSource!.length === 0">
-      <li class="dropdown-item-notFound">No results found</li>
+      <li class="dropdown-parent-item-notFound">
+        <div class="dropdown-parent-item-notFound_header">
+          <div class="dropdown-parent-item-notFound_header_icon">
+            <tf-icon-svg [iconName]="'NOT_FOUND_ICON'"></tf-icon-svg>
+          </div>
+          <div>No results found</div>
+        </div>
+      </li>
     </ng-template>
   </ul>
 </div>

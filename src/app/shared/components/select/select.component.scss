@@ -18,6 +18,11 @@ input::placeholder {
   font-weight: 500;
 }
 
+.dropdown-simple-item {
+  cursor: pointer;
+  font-weight: initial !important;
+}
+
 .dropdown-parent-item:hover,
 .dropdown-parent-item:focus {
   background-color: white !important;
@@ -25,7 +30,7 @@ input::placeholder {
 
 .dropdown-child-item {
   cursor: pointer;
-  padding-left: 40px;
+  padding-left: 55px;
   font-size: 15px;
 }
 
@@ -34,13 +39,32 @@ input::placeholder {
     color: white !important;
     background-color: #6e1c6b !important;
   }
+  &_header {
+    display: flex;
+    gap: 7px;
+    &_icon {
+      padding: 5px 0 5px 0;
+    }
+  }
 }
 
+.dropdown-parent-item-notFound,
 .dropdown-item-notFound {
   padding-left: 40px;
   font-style: italic;
   font-weight: initial;
   color: #999;
+  &_header {
+    display: flex;
+    gap: 7px;
+    &_icon {
+      padding: 5px 0 5px 0;
+    }
+  }
+}
+
+.dropdown-parent-item-notFound {
+  padding-left: 15px;
 }
 
 .dropdown-item.active,
@@ -50,6 +74,7 @@ input::placeholder {
   background-color: #6e1c6b !important;
 }
 
-hr {
-  margin: 5px 10px 5px 10px;
+tf-icon-svg {
+  height: 1rem;
+  width: 1rem;
 }
