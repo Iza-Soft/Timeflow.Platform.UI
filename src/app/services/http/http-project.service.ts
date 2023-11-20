@@ -11,8 +11,8 @@ import { IProject } from 'src/app/shared/models';
 export class HttpProjectService {
   constructor(private http: HttpClient) {}
 
-  getProjectByUserIdAsync(userId: string): Observable<IProject> {
-    return this.http.get<IProject>(
+  getProjectByUserIdAsync(userId: string): Observable<IProject[]> {
+    return this.http.get<IProject[]>(
       [
         getPath('PROJECT_BY_USERID_API_URL').replace(
           'apiVersion',

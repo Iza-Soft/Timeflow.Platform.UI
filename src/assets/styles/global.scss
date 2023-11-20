@@ -4,6 +4,7 @@ body {
   margin: initial;
   color: #1c6b6e;
   //background-color: #eff2f8 !important;
+  line-height: 1.5;
 }
 
 .inner {
@@ -48,10 +49,6 @@ tf-icon-svg {
 .ngx-toastr {
   width: 400px !important; // Specify toastr-dialog width for all devices
 }
-
-// .toast-top-right {
-//   right: 0 !important;
-// }
 
 // /////// Below is not in scss yet. Yet. - work in progress
 

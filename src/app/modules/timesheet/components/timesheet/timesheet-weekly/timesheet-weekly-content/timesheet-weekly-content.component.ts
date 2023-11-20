@@ -3,6 +3,7 @@ import { BsModalService, ModalOptions, BsModalRef } from 'ngx-bootstrap/modal';
 import { TimesheetEntryComponent } from '../../timesheet-entry/timesheet-entry.component';
 import { HttpProjectService } from 'src/app/services';
 import { authmock } from 'src/app/mock-factory/auth/auth-mock';
+import { ISelectModel } from 'src/app/shared/models/select/select-model';
 
 @Component({
   selector: 'tf-timesheet-weekly-content',
@@ -15,19 +16,41 @@ export class TimesheetWeeklyContentComponent implements OnInit {
     private projectService: HttpProjectService
   ) {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  public onCallModal() {
     this.projectService
       .getProjectByUserIdAsync(authmock.mock.userId)
       .subscribe((result) => {
-        console.log(result);
+        let dataSource: ISelectModel[] = [];
+        result.forEach((project) => {
+          let collection: ISelectModel[] = [];
+          project.Tasks?.forEach((task) => {
+            collection.push({
+              Id: task.Id,
+              ParentId: task.ProjectId,
+              Title: task.Title,
+              Description: task.Notes,
+            });
+          });
+          dataSource.push({
+            Id: project.Id,
+            Title: project.Title,
+            Description: project.Description,
+            Collection: collection,
+          });
+        });
+        const modalOptions: ModalOptions = {};
+        modalOptions.backdrop = 'static';
+        modalOptions.animated = true;
+        modalOptions.initialState = {
+          dataSource: dataSource,
+        };
+        //modalOptions.class = 'modal-sm';
+        const modalRef = this.modalService.show(
+          TimesheetEntryComponent,
+          modalOptions
+        );
       });
-  }
-
-  public onCallModal() {
-    const modalOptions: ModalOptions = {};
-    modalOptions.backdrop = 'static';
-    modalOptions.animated = true;
-    //modalOptions.class = 'modal-sm';
-    this.modalService.show(TimesheetEntryComponent, modalOptions);
   }
 }
