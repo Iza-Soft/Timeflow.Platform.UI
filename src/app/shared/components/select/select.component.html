@@ -1,17 +1,13 @@
-<div class="btn-group" #dropdown="bs-dropdown" dropdown style="width: 100%">
+<div class="btn-group" #dropdown="bs-dropdown" dropdown>
   <input
     type="text"
     [placeholder]="placeholder"
     [readonly]="readonly"
-    style="
-      border-top-left-radius: 5px;
-      border-bottom-left-radius: 5px;
-      width: 93%;
-      border: 1px solid rgba(80, 104, 140, 0.1);
-    "
+    class="size-lg"
     [ngModel]="title"
     (ngModelChange)="onModelChange($event, dropdown)"
     (click)="onShowMenuItems(dropdown)"
+    (blur)="onHideMenuItems(dropdown)"
   />
   <button
     id="button-split"
@@ -19,7 +15,6 @@
     dropdownToggle
     class="btn dropdown-toggle dropdown-toggle-split"
     aria-controls="dropdown-split"
-    style="border: 1px solid rgba(80, 104, 140, 0.1); width: 7%"
     #btn
   ></button>
   <ul
@@ -28,7 +23,6 @@
     class="dropdown-menu"
     role="menu"
     aria-labelledby="button-split"
-    style="width: 93%"
   >
     <ng-template ngFor let-parent [ngForOf]="_dataSource" let-i="index">
       <li

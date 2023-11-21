@@ -11,6 +11,7 @@ import { ISelectModel } from 'src/app/shared/models/select/select-model';
   styleUrls: ['./timesheet-weekly-content.component.scss'],
 })
 export class TimesheetWeeklyContentComponent implements OnInit {
+  public showSpinner: boolean = false;
   constructor(
     private modalService: BsModalService,
     private projectService: HttpProjectService
@@ -19,6 +20,7 @@ export class TimesheetWeeklyContentComponent implements OnInit {
   ngOnInit(): void {}
 
   public onCallModal() {
+    this.showSpinner = true;
     this.projectService
       .getProjectByUserIdAsync(authmock.mock.userId)
       .subscribe((result) => {
@@ -40,6 +42,7 @@ export class TimesheetWeeklyContentComponent implements OnInit {
             Collection: collection,
           });
         });
+        this.showSpinner = false;
         const modalOptions: ModalOptions = {};
         modalOptions.backdrop = 'static';
         modalOptions.animated = true;
