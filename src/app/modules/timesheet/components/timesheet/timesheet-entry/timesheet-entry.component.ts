@@ -20,4 +20,8 @@ export class TimesheetEntryComponent implements OnInit {
   public onSelectProject(selectedItem: ISelectModel[]) {
     console.log(selectedItem);
   }
+
+  public onSelectType(selectedItem: ISelectModel[]) {
+    console.log(selectedItem);
+  }
 }

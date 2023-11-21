@@ -16,12 +16,24 @@
       [placeholder]="'Billable / Non-billable'"
       [dataSource]="[
         { Id: 1, Title: 'Billable' },
-        { Id: 2, Title: 'Non-billable' },
-        { Id: 3, Title: 'Account delevopment' }
+        { Id: 2, Title: 'Non-billable' }
       ]"
       [value]="{ id: 1 }"
-      (onSelectItem)="onSelectProject($event)"
+      (onSelectItem)="onSelectType($event)"
     ></tf-select>
+  </div>
+  <div class="tools">
+    <tf-label
+      [title]="'Working hours'"
+      [hint]="'(Time spent at work)'"
+      [hintSize]="'12px'"
+      [hintColor]="'#999'"
+    />
+    <input type="text" class="hours text-end size-sm" />
+  </div>
+  <div>
+    <tf-label [title]="'Notes'" />
+    <textarea rows="5" class="size-lg"></textarea>
   </div>
 </div>
 <div class="modal-footer">

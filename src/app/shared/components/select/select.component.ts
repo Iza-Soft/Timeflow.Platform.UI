@@ -119,6 +119,12 @@ export class SelectComponent implements OnInit {
     }
   }
 
+  public onHideMenuItems(dropdown: BsDropdownDirective) {
+    if (dropdown.isOpen) {
+      dropdown.autoClose = true;
+    }
+  }
+
   private CopyDataSource(): ISelectModel[] {
     let _dataSource: ISelectModel[] = [];
     this.dataSource.forEach((parent) => {

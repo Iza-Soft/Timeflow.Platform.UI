@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
     comp.ButtonCrossEffectComponent,
     comp.ButtonHalfFullerComponent,
     comp.SelectComponent,
+    comp.LoadingComponent,
   ],
   imports: [CommonModule, FormsModule, BsDropdownModule.forRoot()],
   providers: [BsDropdownConfig, HttpProjectService, NotificationService],
@@ -21,6 +22,8 @@ import { FormsModule } from '@angular/forms';
     comp.ButtonCrossEffectComponent,
     comp.ButtonHalfFullerComponent,
     comp.SelectComponent,
+    comp.LoadingComponent,
+    FormsModule,
   ],
 })
 export class SharedModule {}
