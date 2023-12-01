@@ -13,13 +13,10 @@
   <div>
     <tf-select
       [readonly]="true"
-      [placeholder]="'Billable / Non-billable'"
-      [dataSource]="[
-        { Id: 1, Title: 'Billable' },
-        { Id: 2, Title: 'Non-billable' }
-      ]"
+      [placeholder]="'Service type'"
+      [dataSource]="ServiceTypes"
       [value]="{ id: 1 }"
-      (onSelectItem)="onSelectType($event)"
+      (onSelectItem)="onSelectServiceType($event)"
     ></tf-select>
   </div>
   <div class="tools">

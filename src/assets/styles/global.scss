@@ -1,4 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+  --bs-backdrop-zindex: 1050;
+  --bs-backdrop-bg: #000;
+  --bs-backdrop-opacity: 0.2;
+}
+
+.modal-backdrop {
+  --bs-backdrop-opacity: 0.2 !important;
+}
 
 body {
   margin: initial;

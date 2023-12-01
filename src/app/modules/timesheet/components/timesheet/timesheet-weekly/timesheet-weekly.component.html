@@ -59,7 +59,10 @@
     </div>
   </div>
   <div class="grid-item">
-    <div class="grid-item-header">Januray 14, 2023 - January 21, 2023</div>
+    <div class="grid-item-header">
+      {{ firstDateOfWeek | date : "longDate" }} -
+      {{ lastDateOfWeek | date : "longDate" }}
+    </div>
     <div class="grid-item-body">
       <div class="grid-item-body-menu">
         <ng-template ngFor let-dayOfWeek [ngForOf]="daysOfWeek" let-i="index">

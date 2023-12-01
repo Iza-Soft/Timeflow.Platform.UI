@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./loading.component.scss'],
 })
 export class LoadingComponent {
-  constructor() {}
+  constructor() {
+    // https://freefrontend.com/css-code-examples/
+  }
 }

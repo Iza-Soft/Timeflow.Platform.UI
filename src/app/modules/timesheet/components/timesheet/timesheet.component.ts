@@ -11,6 +11,7 @@ export class TimesheetComponent implements OnInit {
   public timesheetlist: ITimeSheet[] = timesheetmock.mock;
   public showFilledUndoIcon: boolean = true;
   public showFilledRedoIcon: boolean = true;
+  public currentDate: Date = new Date();
 
   constructor() {}
 
@@ -24,5 +25,21 @@ export class TimesheetComponent implements OnInit {
   public onMouseLeave(icon: string) {
     if (icon.includes('undo')) this.showFilledUndoIcon = true;
     if (icon.includes('redo')) this.showFilledRedoIcon = true;
+  }
+
+  public setDaysOfWeek(index: number) {
+    //this.dayOfWeek = this.dayOfWeek + index;
+  }
+
+  public onForward() {
+    this.currentDate = new Date(
+      this.currentDate.setDate(this.currentDate.getDate() + 1)
+    );
+  }
+
+  public onBackward() {
+    this.currentDate = new Date(
+      this.currentDate.setDate(this.currentDate.getDate() - 1)
+    );
   }
 }

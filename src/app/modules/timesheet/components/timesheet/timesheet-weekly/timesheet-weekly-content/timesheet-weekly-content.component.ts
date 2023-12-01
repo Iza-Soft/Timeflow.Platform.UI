@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { BsModalService, ModalOptions, BsModalRef } from 'ngx-bootstrap/modal';
 import { TimesheetEntryComponent } from '../../timesheet-entry/timesheet-entry.component';
-import { HttpProjectService } from 'src/app/services';
+import { HttpProjectService, ProjectService } from 'src/app/services';
 import { authmock } from 'src/app/mock-factory/auth/auth-mock';
 import { ISelectModel } from 'src/app/shared/models/select/select-model';
+import { EMPTY, catchError } from 'rxjs';
 
 @Component({
   selector: 'tf-timesheet-weekly-content',
@@ -11,49 +12,33 @@ import { ISelectModel } from 'src/app/shared/models/select/select-model';
   styleUrls: ['./timesheet-weekly-content.component.scss'],
 })
 export class TimesheetWeeklyContentComponent implements OnInit {
-  public showSpinner: boolean = false;
+  public isLoading: boolean = false;
   constructor(
     private modalService: BsModalService,
-    private projectService: HttpProjectService
+    private projectService: ProjectService
   ) {}
 
   ngOnInit(): void {}
 
   public onCallModal() {
-    this.showSpinner = true;
-    this.projectService
-      .getProjectByUserIdAsync(authmock.mock.userId)
-      .subscribe((result) => {
-        let dataSource: ISelectModel[] = [];
-        result.forEach((project) => {
-          let collection: ISelectModel[] = [];
-          project.Tasks?.forEach((task) => {
-            collection.push({
-              Id: task.Id,
-              ParentId: task.ProjectId,
-              Title: task.Title,
-              Description: task.Notes,
-            });
-          });
-          dataSource.push({
-            Id: project.Id,
-            Title: project.Title,
-            Description: project.Description,
-            Collection: collection,
-          });
-        });
-        this.showSpinner = false;
-        const modalOptions: ModalOptions = {};
-        modalOptions.backdrop = 'static';
-        modalOptions.animated = true;
-        modalOptions.initialState = {
-          dataSource: dataSource,
-        };
-        //modalOptions.class = 'modal-sm';
-        const modalRef = this.modalService.show(
-          TimesheetEntryComponent,
-          modalOptions
-        );
-      });
+    // this.isLoading = true;
+
+    const modalOptions: ModalOptions = {};
+    modalOptions.backdrop = 'static';
+    modalOptions.animated = true;
+    modalOptions.initialState = {
+      dataSource: this.projectService.setProjectsToSelectModel(),
+    };
+    const modalRef = this.modalService.show(
+      TimesheetEntryComponent,
+      modalOptions
+    );
+
+    //     modalRef.content?.onClose.subscribe((result) => {
+    //       console.log('results', result);
+    //     });
+    //     modalRef.content?.onClose1.subscribe((result) => {
+    //       console.log('results 1', result);
+    //     });
   }
 }

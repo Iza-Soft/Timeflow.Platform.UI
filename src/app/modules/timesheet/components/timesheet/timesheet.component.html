@@ -6,6 +6,7 @@
           class="content-nav-btn"
           (mouseenter)="onMouseEnter('undo')"
           (mouseleave)="onMouseLeave('undo')"
+          (click)="onBackward()"
         >
           <ng-template
             [ngIf]="showFilledUndoIcon"
@@ -22,6 +23,7 @@
           class="content-nav-btn"
           (mouseenter)="onMouseEnter('redo')"
           (mouseleave)="onMouseLeave('redo')"
+          (click)="onForward()"
         >
           <ng-template
             [ngIf]="showFilledRedoIcon"
@@ -38,6 +40,8 @@
 
       <tf-timesheet-weekly
         [timesheetlist]="timesheetlist"
+        [setCurrentDate]="currentDate"
+        (setDaysOfWeek)="setDaysOfWeek($event)"
       ></tf-timesheet-weekly>
     </div>
   </div>
