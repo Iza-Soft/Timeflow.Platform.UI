@@ -20,13 +20,11 @@ export class DateService {
     return date;
   }
 
-  // public getCalculatedDate(dayOfWeek: number) {
-  //   let format_date: Date = this.getFirstDateOfTheWeek(new Date());
+  public setDateByGivenDayOfWeek(date: Date, dayOfWeek: number) {
+    return new Date(date.setDate(date.getDate() - (date.getDay() - dayOfWeek)));
+  }
 
-  //   return formatDate(
-  //     new Date(format_date.setDate(format_date.getDate() + dayOfWeek)),
-  //     this.format,
-  //     this.locale
-  //   );
-  // }
+  public formattedDate(date: Date, format?: string) {
+    return formatDate(date, format ? format : this.format, this.locale);
+  }
 }

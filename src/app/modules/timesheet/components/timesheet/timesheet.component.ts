@@ -27,8 +27,8 @@ export class TimesheetComponent implements OnInit {
     if (icon.includes('redo')) this.showFilledRedoIcon = true;
   }
 
-  public setDaysOfWeek(index: number) {
-    //this.dayOfWeek = this.dayOfWeek + index;
+  public setSelectedDate(date: Date) {
+    this.currentDate = new Date(date);
   }
 
   public onForward() {

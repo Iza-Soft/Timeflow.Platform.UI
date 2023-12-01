@@ -1,16 +1,7 @@
-import {
-  Component,
-  EventEmitter,
-  Inject,
-  Input,
-  LOCALE_ID,
-  OnInit,
-  Output,
-} from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ITimeSheet } from '../../../models/timesheet.model';
 import { DATE_TIME_CONFIG } from 'src/app/config/date-time.config';
 import { DateService } from 'src/app/services';
-import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'tf-timesheet-weekly',
@@ -30,34 +21,24 @@ export class TimesheetWeeklyComponent implements OnInit {
       new Date(currentDate)
     );
   }
-  @Output() setDaysOfWeek = new EventEmitter<number>();
+  @Output() setSelectedDate = new EventEmitter<Date>();
   public daysOfWeek: string[] = DATE_TIME_CONFIG.DAYS_OF_WEEK;
   public selectedDayOfWeek: string;
   public firstDateOfWeek: Date;
   public lastDateOfWeek: Date;
-  private format: string = 'MM-dd-yyyy';
   private date: Date;
 
-  constructor(
-    private dateService: DateService,
-    @Inject(LOCALE_ID) private locale: string
-  ) {}
+  constructor(private dateService: DateService) {}
 
   public ngOnInit(): void {}
 
-  public onSelectDayOfWeek(dayOfWeek: string) {
+  public onSelectDayOfWeek(dayOfWeek: string, index: number) {
     this.selectedDayOfWeek = dayOfWeek;
+    this.date = this.dateService.setDateByGivenDayOfWeek(this.date, index);
 
-    // let firsDayOfWeek: Date = this.dateService.getFirstDateOfTheWeek(
-    //   new Date(this._date)
-    // );
-    // this.setDaysOfWeek.emit(index);
-    // console.log(
-    //   formatDate(
-    //     new Date(firsDayOfWeek.setDate(firsDayOfWeek.getDate() + index)),
-    //     this.format,
-    //     this.locale
-    //   )
-    // );
+    this.setSelectedDate.emit(this.date);
+    let formatted_date = this.dateService.formattedDate(this.date);
+
+    console.log(formatted_date);
   }
 }

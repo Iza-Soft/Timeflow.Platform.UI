@@ -70,7 +70,7 @@
             [title]="dayOfWeek"
             [hint]="'0 hrs'"
             [active]="dayOfWeek === selectedDayOfWeek"
-            (clickEvent)="onSelectDayOfWeek(dayOfWeek)"
+            (clickEvent)="onSelectDayOfWeek(dayOfWeek, i)"
           ></tf-button-cross-effect>
         </ng-template>
       </div>

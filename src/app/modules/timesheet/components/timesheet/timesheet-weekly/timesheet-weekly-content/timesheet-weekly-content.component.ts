@@ -21,7 +21,7 @@ export class TimesheetWeeklyContentComponent implements OnInit {
   ngOnInit(): void {}
 
   public onCallModal() {
-    // this.isLoading = true;
+    //this.isLoading = true;
 
     const modalOptions: ModalOptions = {};
     modalOptions.backdrop = 'static';
@@ -34,9 +34,11 @@ export class TimesheetWeeklyContentComponent implements OnInit {
       modalOptions
     );
 
-    //     modalRef.content?.onClose.subscribe((result) => {
-    //       console.log('results', result);
-    //     });
+    modalRef.content?.onClose.subscribe((result) => {
+      console.log('results', result);
+      //this.isLoading = false;
+    });
+
     //     modalRef.content?.onClose1.subscribe((result) => {
     //       console.log('results 1', result);
     //     });
