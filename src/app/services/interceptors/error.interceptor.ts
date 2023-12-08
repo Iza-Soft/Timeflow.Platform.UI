@@ -8,17 +8,22 @@ import {
 } from '@angular/common/http';
 import { Observable, catchError, throwError } from 'rxjs';
 import { NotificationService } from '../notifications/notification.service';
+import { LoadingService } from '..';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ErrorInterceptor implements HttpInterceptor {
-  constructor(private notification: NotificationService) {}
+  constructor(
+    private notification: NotificationService,
+    private loading: LoadingService
+  ) {}
 
   intercept(
     request: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
+    this.loading.Set(true);
     return next.handle(request).pipe(
       catchError((error: HttpErrorResponse) => {
         let errorMsg = '';
@@ -38,6 +43,7 @@ export class ErrorInterceptor implements HttpInterceptor {
             'Error'
           );
         }
+        this.loading.Set(false);
         return throwError(() => error);
       })
     );

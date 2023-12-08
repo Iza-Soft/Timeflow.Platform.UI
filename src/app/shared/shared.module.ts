@@ -2,7 +2,11 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BsDropdownModule, BsDropdownConfig } from 'ngx-bootstrap/dropdown';
 import * as comp from './components/index';
-import { HttpProjectService, NotificationService } from '../services';
+import {
+  HttpProjectService,
+  NotificationService,
+  LoadingService,
+} from '../services';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
@@ -15,7 +19,12 @@ import { FormsModule } from '@angular/forms';
     comp.LoadingComponent,
   ],
   imports: [CommonModule, FormsModule, BsDropdownModule.forRoot()],
-  providers: [BsDropdownConfig, HttpProjectService, NotificationService],
+  providers: [
+    BsDropdownConfig,
+    HttpProjectService,
+    NotificationService,
+    LoadingService,
+  ],
   exports: [
     comp.IconSvgComponent,
     comp.LabelComponent,

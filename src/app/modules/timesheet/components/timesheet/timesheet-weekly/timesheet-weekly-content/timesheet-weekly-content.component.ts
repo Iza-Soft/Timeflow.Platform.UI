@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { BsModalService, ModalOptions, BsModalRef } from 'ngx-bootstrap/modal';
+import { BsModalService, ModalOptions } from 'ngx-bootstrap/modal';
 import { TimesheetEntryComponent } from '../../timesheet-entry/timesheet-entry.component';
-import { HttpProjectService, ProjectService } from 'src/app/services';
-import { authmock } from 'src/app/mock-factory/auth/auth-mock';
-import { ISelectModel } from 'src/app/shared/models/select/select-model';
-import { EMPTY, catchError } from 'rxjs';
+import { ProjectService } from 'src/app/services';
 
 @Component({
   selector: 'tf-timesheet-weekly-content',
@@ -12,7 +9,6 @@ import { EMPTY, catchError } from 'rxjs';
   styleUrls: ['./timesheet-weekly-content.component.scss'],
 })
 export class TimesheetWeeklyContentComponent implements OnInit {
-  public isLoading: boolean = false;
   constructor(
     private modalService: BsModalService,
     private projectService: ProjectService
@@ -20,14 +16,12 @@ export class TimesheetWeeklyContentComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  public onCallModal() {
-    //this.isLoading = true;
-
+  public async onCallModal() {
     const modalOptions: ModalOptions = {};
     modalOptions.backdrop = 'static';
     modalOptions.animated = true;
     modalOptions.initialState = {
-      dataSource: this.projectService.setProjectsToSelectModel(),
+      dataSource: await this.projectService.setProjectsToSelectModel(),
     };
     const modalRef = this.modalService.show(
       TimesheetEntryComponent,
@@ -36,9 +30,7 @@ export class TimesheetWeeklyContentComponent implements OnInit {
 
     modalRef.content?.onClose.subscribe((result) => {
       console.log('results', result);
-      //this.isLoading = false;
     });
-
     //     modalRef.content?.onClose1.subscribe((result) => {
     //       console.log('results 1', result);
     //     });
