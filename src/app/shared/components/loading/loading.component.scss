@@ -1,84 +1,80 @@
-.spinner_overlay {
-  --bs-backdrop-zindex: 1050;
-  --bs-backdrop-bg: #000;
-  --bs-backdrop-opacity: 0.5;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: var(--bs-backdrop-bg);
-  z-index: var(--bs-backdrop-zindex);
-  opacity: var(--bs-backdrop-opacity);
-}
-.ring {
+$count: 10;
+$time: 2; //in seconds
+$size: 100;
+$color: #6e1c6b;
+
+.holder {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 150px;
-  height: 150px;
-  background: transparent;
-  //   border: 3px solid #3c3c3c;
-  border-radius: 50%;
-  text-align: center;
-  line-height: 150px;
-  font-family: sans-serif;
-  font-size: 20px;
-  color: #6e1c6b;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  text-shadow: 0 0 10px #6e1c6b;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-}
-.ring:before {
-  content: "";
-  position: absolute;
-  //top: -1px;
-  left: -1px;
+  left: 0px;
+  top: 0px;
+  bottom: 0px;
+  right: 0px;
   width: 100%;
   height: 100%;
-  border: 3px solid transparent;
-  border-top: 3px solid #6e1c6b;
-  border-right: 3px solid #6e1c6b;
-  border-radius: 50%;
-  animation: animateC 2s linear infinite;
+  background-color: transparent;
+  z-index: var(--bs-backdrop-zindex);
+  caret-color: transparent;
 }
-span {
-  display: block;
+
+.preloader {
+  /* size */
+  width: $size + px;
+  height: $size + px;
   position: absolute;
-  top: calc(50% - 2px);
   left: 50%;
-  width: 50%;
-  height: 4px;
-  background: transparent;
-  transform-origin: left;
-  animation: animate 2s linear infinite;
+  top: 40%;
+  transform: translateX(-50%) translateY(-50%);
+  animation: rotatePreloader $time + s infinite ease-in;
 }
-span:before {
+@keyframes rotatePreloader {
+  0% {
+    transform: translateX(-50%) translateY(-50%) rotateZ(0deg);
+  }
+  100% {
+    transform: translateX(-50%) translateY(-50%) rotateZ(-360deg);
+  }
+}
+.preloader div {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+.preloader div:before {
   content: "";
   position: absolute;
-  width: 16px;
-  height: 16px;
+  left: 50%;
+  top: 0%;
+  width: 10%;
+  height: 10%;
+  background-color: $color;
+  transform: translateX(-50%);
   border-radius: 50%;
-  background: #6e1c6b;
-  top: -6px;
-  right: -8px;
-  box-shadow: 0 0 20px #6e1c6b;
 }
-@keyframes animateC {
-  0% {
-    transform: rotate(0deg);
+
+@for $i from 1 through $count {
+  .preloader div:nth-child(#{$i}) {
+    transform: rotateZ(((360 / $count) * ($i - 1)) + deg);
+    animation: rotateCircle + $i $time + s infinite linear;
+    z-index: $count - $i;
   }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-@keyframes animate {
-  0% {
-    transform: rotate(45deg);
-  }
-  100% {
-    transform: rotate(405deg);
+  @keyframes rotateCircle#{$i} {
+    #{percentage(((50 / $count) * ($i - 1)) / 100)} {
+      opacity: 0;
+    }
+    #{percentage((((50 / $count) + 0.0001) * ($i - 1)) / 100)} {
+      opacity: 1;
+      transform: rotateZ((0 - ((360 / $count) * ($i - 2))) + deg);
+    }
+    #{percentage((((50 / $count) * ($i - 0)) + 2) / 100)} {
+      transform: rotateZ((0 - ((360 / $count) * ($i - 1))) + deg);
+    }
+    #{percentage(((50 + ((50 / $count) * ($i - 0))) + 2) / 100)} {
+      transform: rotateZ((0 - ((360 / $count) * ($i - 1))) + deg);
+    }
+    100% {
+      transform: rotateZ((0 - ((360 / $count) * ($count - 1))) + deg);
+      opacity: 1;
+    }
   }
 }

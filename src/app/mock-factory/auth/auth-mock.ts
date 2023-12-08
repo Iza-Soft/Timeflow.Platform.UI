@@ -5,7 +5,7 @@ class AuthMock {
 
   constructor() {
     this.mock = {
-      userId: '2AC384CA-BA42-4550-A008-1CE0D828E04E',
+      userId: '99A99EA5-2E81-463E-9D9E-2E0D8C4588F8',
     };
   }
 }
